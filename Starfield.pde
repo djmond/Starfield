@@ -11,6 +11,10 @@ void setup()
 		for(int s=0; s<100;s++){
 			cool[s] = new SpinnyParticle();
 		}
+		for(int r=0;r<15;r++)
+		{
+			cool[r] = new RektParticle();
+		}
 
 		
 	}
@@ -18,7 +22,7 @@ void setup()
 }
 void draw()
 {
-	fill(0,0,0,50);
+	fill(0,0,0,20);
 	rect(0,0,600,600);
 	for (int i=0; i<cool.length;i++) {
 		cool[i].move();
@@ -116,5 +120,37 @@ class SpinnyParticle implements Particle
 	
 
 		}
+	}
+		class RektParticle implements Particle
+		{
+			int myColor;
+		double myX,myY;
+		RektParticle(){
+			myColor=((int)(Math.random()*255)+1);
+			myX=300;
+			myY=(int)(Math.random()*10)+1;
+			
 
-}
+		}
+		public void move()
+		{
+			myX=myX+5;
+			myY=myY+0;
+			if(myX>600)
+			{
+				myX=0;
+				myY=0;
+			}
+
+
+		}
+		public void show()
+		{
+			fill(myColor,myColor,myColor);
+			rect((float)myX,(float)myY,20,30);
+
+		}
+
+
+		}
+
